@@ -1,5 +1,5 @@
 import { connectDB } from '@/util/database';
-import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
+import { MongoDBAdapter } from '@auth/mongodb-adapter';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcrypt';
@@ -18,7 +18,7 @@ export const authOptions = {
             //직접 DB에서 아이디,비번 비교하고
             //아이디,비번 맞으면 return 결과, 틀리면 return null 해야함
             async authorize(credentials) {
-                let db = (await connectDB).db('menber');
+                let db = (await connectDB).db('readingHistory');
                 let user = await db.collection('user_cred').findOne({ email: credentials.email });
                 if (!user) {
                     console.log('해당 이메일은 없음');
