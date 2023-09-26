@@ -1,5 +1,6 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth].js";
 import { getServerSession } from "next-auth";
+import Markdown from "./markdown";
 
 export default async function Writing() {
   let session = await getServerSession(authOptions);
@@ -10,6 +11,7 @@ export default async function Writing() {
       <form action="/api/post/writing" method="POST">
         <input name="email" defaultValue={session.user.email} />
         <input name="review" />
+        <Markdown />
         <button type="submit">버튼</button>
       </form>
     </div>
