@@ -10,11 +10,10 @@ export default async function Reviews() {
 
     let result = await db.collection('reviews').find({ email: session.user.email }).toArray();
 
-    // console.log(result);
-
     return (
         <div>
             <Link href="writing">글 작성</Link>
+            <p>서평 수 : {result.length}</p>
             <p>reviews</p>
             {result.map((item, i) => (
                 <Link href={`/detail/${result[i]._id}`}>{item.title}</Link>
