@@ -9,6 +9,10 @@ export default async function Reviews() {
     const db = client.db('readingHistory');
 
     let result = await db.collection('reviews').find({ email: session.user.email }).toArray();
+    result = result.map((a) => {
+        a._id = a._id.toString();
+        return a;
+    });
 
     return (
         <div>
@@ -16,7 +20,9 @@ export default async function Reviews() {
             <p>서평 수 : {result.length}</p>
             <p>reviews</p>
             {result.map((item, i) => (
-                <Link href={`/detail/${result[i]._id}`}>{item.title}</Link>
+                <Link key={i} href={`/detail/${result[i]._id}`}>
+                    {item.title}
+                </Link>
             ))}
         </div>
     );
