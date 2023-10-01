@@ -1,18 +1,18 @@
 import { connectDB } from "@/util/database";
 
-export default async function handler(Get, Post) {
-  if (Get.method === "POST") {
+export default async function handler(req, res) {
+  if (req.method === "POST") {
     let db = (await connectDB).db("readingHistory");
     let taste = [];
-    if (typeof Get.body.taste === "object") {
-      taste = [...Get.body.taste];
+    if (typeof req.body.taste === "object") {
+      taste = [...req.body.taste];
     } else {
-      taste = [Get.body.taste];
+      taste = [req.body.taste];
     }
 
     await db
       .collection("user_cred")
-      .updateOne({ email: Get.body.email }, { $set: { taste: taste } });
-    Post.status(200).redirect(302, "/profile");
+      .updateOne({ email: req.body.email }, { $set: { taste: taste } });
+    res.status(200).redirect(302, "/profile");
   }
 }
