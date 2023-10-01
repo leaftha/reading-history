@@ -1,20 +1,12 @@
-import axios from "axios";
+import Sample from "./sample";
 
 export default async function Commend() {
-  try {
-    //응답 성공
-    const response = await axios.get(
-      "http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttbvltpcks1846001&Query=aladdin&QueryType=Title&MaxResults=10&start=1&SearchTarget=Book&output=js&Version=20070901"
-    );
-    JSON.parse(response.data);
-    console.log(response.data);
-  } catch (error) {
-    //응답 실패
-    console.error("error");
-  }
+  const resposn = await fetch("http://localhost:3000/api/post/aladin");
+  console.log(resposn, "asdf");
   return (
     <div>
       <p>책 추천 사이트</p>
+      <button>button</button>
     </div>
   );
 }
