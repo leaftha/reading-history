@@ -1,21 +1,20 @@
 import axios from "axios";
 
 export default async function handler(req, res) {
+  console.log(req.query.category);
+
   try {
+    let category = 8560;
+    if (req.query.category === "과학") {
+      category = 2105;
+    }
     const q = await axios.get(
-      "http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttbvltpcks1846001&Query=aladdin&QueryType=Title&MaxResults=10&start=1&SearchTarget=Book&output=js&Version=20070901"
+      `http://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=ttbvltpcks1846001&QueryType=Bestseller&MaxResults=20&start=1&SearchTarget=Book&CategoryId=${category}&output=js&Version=20131101`
     );
 
     //db 데이터
     const a = q.data;
-
-    //json 악성 예외 처리
-    const c = a.replaceAll(`\\'`, "");
-    const d = c.replaceAll(`;`, "");
-
-    //json 파싱
-    const b = JSON.parse(d);
-    res.status(200).json(b);
+    res.status(200).json(a);
   } catch (err) {
     console.log(err);
   }
