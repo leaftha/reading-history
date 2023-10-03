@@ -1,5 +1,4 @@
 import { connectDB } from "@/util/database";
-import { ObjectId } from "mongodb";
 import { authOptions } from "@/pages/api/auth/[...nextauth].js";
 import { getServerSession } from "next-auth";
 export default async function handler(req, res) {
@@ -12,9 +11,8 @@ export default async function handler(req, res) {
       author: session.user.email,
     };
 
-    console.log(comment);
-    let db = (await connectDB).db("forum");
-    let result = await db.collection("comment").insertOne(저장할거);
+    let db = (await connectDB).db("readingHistory");
+    let result = await db.collection("comment").insertOne(comment);
     res.status(200).json("저장완료");
   }
 }
