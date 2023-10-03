@@ -1,6 +1,8 @@
+
 import List from "./listl";
 
-export default function Commend() {
+export default async function Commend() {
+
   // const isModal = (modal) => {
   //   console.log(modal);
   // };
