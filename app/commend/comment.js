@@ -31,7 +31,12 @@ export default function Comment({ id }) {
           fetch("/api/comment/new", {
             method: "POST",
             body: JSON.stringify({ comment: comment, id: id }),
-          });
+          })
+            .then((r) => r.json())
+            .then((result) => {
+              console.log(result);
+              setData([...data, result]);
+            });
         }}
       >
         댓글전송

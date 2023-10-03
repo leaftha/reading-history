@@ -13,6 +13,6 @@ export default async function handler(req, res) {
 
     let db = (await connectDB).db("readingHistory");
     let result = await db.collection("comment").insertOne(comment);
-    res.status(200).json("저장완료");
+    res.status(200).json(comment);
   }
 }
