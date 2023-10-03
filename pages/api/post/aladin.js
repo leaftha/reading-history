@@ -1,8 +1,6 @@
 import axios from "axios";
 
 export default async function handler(req, res) {
-  console.log(req.query.category);
-
   try {
     let category = 8560;
     if (req.query.category === "과학") {
