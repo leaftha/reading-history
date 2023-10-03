@@ -6,6 +6,7 @@ export default function Commend() {
   const [data, setData] = useState(null);
   const [isFalse, setIsFalse] = useState(false);
   const [selected, setSelected] = useState("소설");
+  const [clicked, setCliked] = useState("");
 
   useEffect(() => {
     fetch(`http://localhost:3000/api/post/aladin?category=${selected}&b=2&c=3`)
@@ -23,6 +24,11 @@ export default function Commend() {
     }
   };
 
+  const clickedhandler = (item) => {
+    console.log(item);
+    // setCliked()
+  };
+
   return (
     <div>
       <p>책 추천 사이트</p>
@@ -35,13 +41,18 @@ export default function Commend() {
         ))}
       </select>
       <button onClick={() => setIsFalse(!isFalse)}>검색</button>
-      {/* <input
-        name="category"
-        type="number"
-        value={category}
-        onChange={ChangeCategory}
-      /> */}
-      {data ? data.map((item, idx) => <p key={idx}>{item.title}</p>) : ""}
+      {data
+        ? data.map((item, idx) => (
+            <p
+              key={idx}
+              onClick={() => {
+                clickedhandler(item);
+              }}
+            >
+              {item.title}
+            </p>
+          ))
+        : ""}
     </div>
   );
 }
