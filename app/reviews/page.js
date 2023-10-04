@@ -5,6 +5,9 @@ import Link from 'next/link';
 
 export default async function Reviews() {
     let session = await getServerSession(authOptions);
+    if (!session) {
+        return <NotAuth />;
+    }
     const client = await connectDB;
     const db = client.db('readingHistory');
 

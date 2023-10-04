@@ -4,7 +4,9 @@ import Markdown from './markdown';
 
 export default async function Writing() {
     let session = await getServerSession(authOptions);
-
+    if (!session) {
+        return <NotAuth />;
+    }
     return (
         <div>
             <h4>글작성</h4>
