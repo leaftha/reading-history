@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Modal from "./modal";
 
-export default function List() {
+export default function List({ session }) {
   const [data, setData] = useState(null);
   const [isFalse, setIsFalse] = useState(false);
   const [selected, setSelected] = useState("소설");
@@ -51,7 +51,7 @@ export default function List() {
             </p>
           ))
         : ""}
-      {modal && <Modal item={clicked} setModal={setModal} />}
+      {modal && <Modal item={clicked} setModal={setModal} session={session} />}
     </div>
   );
 }

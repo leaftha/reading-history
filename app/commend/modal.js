@@ -1,6 +1,6 @@
 import Comment from "./comment";
 
-export default function Modal({ item, setModal }) {
+export default function Modal({ item, setModal, session }) {
   const closeModel = () => {
     setModal(false);
   };
@@ -14,7 +14,7 @@ export default function Modal({ item, setModal }) {
       <p>{item.author}</p>
       <p>{item.categoryName}</p>
       <p>{item.description}</p>
-      <Comment id={item.itemId} />
+      <Comment session={session} id={item.itemId} />
     </div>
   );
 }
