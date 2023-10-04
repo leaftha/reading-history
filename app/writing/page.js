@@ -10,7 +10,6 @@ export default async function Writing() {
     return (
         <div>
             <h4>글작성</h4>
-
             <Markdown session={session} />
         </div>
     );

@@ -17,7 +17,13 @@ export default function Comment({ id }) {
     return (
         <div>
             <div>댓글목록</div>
-            {data.length > 0 ? data.map((a, i) => <p key={i}>{a.content}</p>) : '댓글없음'}
+            {data.length > 0
+                ? data.map((a, i) => (
+                      <p key={i}>
+                          {a.content} - {a.author}
+                      </p>
+                  ))
+                : '댓글없음'}
             <input
                 value={comment}
                 onChange={(e) => {
@@ -32,7 +38,6 @@ export default function Comment({ id }) {
                     })
                         .then((r) => r.json())
                         .then((result) => {
-                            console.log(result);
                             setData([...data, result]);
                         });
                 }}
