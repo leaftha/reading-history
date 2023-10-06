@@ -1,5 +1,7 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth].js";
 import { getServerSession } from "next-auth";
+import NotAuth from "../notauth";
+
 import List from "./listl";
 
 export default async function Commend() {

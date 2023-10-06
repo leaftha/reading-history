@@ -7,7 +7,7 @@ export default async function handler(req, res) {
       category = 2105;
     }
     const q = await axios.get(
-      `http://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=ttbvltpcks1846001&QueryType=Bestseller&MaxResults=20&start=1&SearchTarget=Book&CategoryId=${category}&output=js&Version=20131101`
+      `http://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=${process.env.ALADIN_OPENAPI_KEY}&QueryType=Bestseller&MaxResults=20&start=1&SearchTarget=Book&CategoryId=${category}&output=js&Version=20131101`
     );
 
     //db 데이터
