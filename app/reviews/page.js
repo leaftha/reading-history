@@ -24,6 +24,7 @@ export default async function Reviews() {
   return (
     <div>
       <Link href="writing">글 작성</Link>
+      <Link href="reviewlist">다른 사람 서평들</Link>
       <p>서평 수 : {result.length}</p>
       <p>reviews</p>
       {result.map((item, i) => (
