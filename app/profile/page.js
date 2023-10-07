@@ -32,7 +32,13 @@ export default async function Profile() {
     tier = "도서왕";
   }
 
-  let tastes = [...result[0].taste] || [];
+  let tastes;
+  if (result[0].taste) {
+    tastes = [...result[0].taste];
+  } else {
+    tastes = [];
+  }
+
   return (
     <div>
       <p>profile</p>
