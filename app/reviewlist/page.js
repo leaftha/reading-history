@@ -1,5 +1,5 @@
 import { connectDB } from "@/util/database";
-import Link from "next/link";
+import List from "./list";
 
 export default async function reviewList() {
   const client = await connectDB;
@@ -9,15 +9,14 @@ export default async function reviewList() {
     .collection("reviews")
     .find({ private: "true" })
     .toArray();
-
+  result = result.map((a) => {
+    a._id = a._id.toString();
+    return a;
+  });
   return (
     <div>
       <p>리뷰 리스트</p>
-      {result.map((item, idx) => (
-        <Link key={idx} href={`/detail/${result[idx]._id}`}>
-          {item.title}
-        </Link>
-      ))}
+      <List result={result} />
     </div>
   );
 }
