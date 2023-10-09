@@ -6,7 +6,8 @@ import { useState } from "react";
 export default function Markdown({ session }) {
   const [value, setValue] = useState("");
   const [privates, setPrivates] = useState(false);
-
+  const [privateValue, setPrivateValue] = useState(`${privates}`);
+  console.log(privates);
   return (
     <form action="/api/post/writing" method="POST">
       <input name="email" defaultValue={session.user.email} />
@@ -14,6 +15,7 @@ export default function Markdown({ session }) {
       <input name="title" />
       <select
         onChange={() => {
+          setPrivateValue(!privates);
           setPrivates(!privates);
         }}
         value={privates}
@@ -25,13 +27,7 @@ export default function Markdown({ session }) {
           공개
         </option>
       </select>
-      <input
-        name="private"
-        defaultValue={privates}
-        onChange={() => {
-          setPrivates(!privates);
-        }}
-      />
+      <input name="private" defaultValue={privateValue} />
 
       <div data-color-mode="light">
         <MDEditor height={200} value={value} onChange={setValue} />
