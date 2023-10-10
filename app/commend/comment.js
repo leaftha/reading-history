@@ -17,7 +17,8 @@ export default function Comment({ id, session }) {
     fetch(`/api/comment/list?id=${id}`)
       .then((r) => r.json())
       .then((result) => {
-        setProducts(result);
+        const reverse = result.reverse();
+        setProducts(reverse);
       });
     setCount(products.length);
     setIndexOfLastPost(currentPage * postPerPage);
@@ -38,31 +39,6 @@ export default function Comment({ id, session }) {
   return (
     <div>
       <div>댓글목록</div>
-      {/* {data.length > 0
-        ? data.map((a, i) => (
-            <div key={i}>
-              <p>
-                {a.content} - {a.author}
-              </p>
-              {a.author === session.user.email ? (
-                <button
-                  onClick={() => {
-                    fetch("/api/comment/delete", {
-                      method: "POST",
-                      body: JSON.stringify({ id: a._id }),
-                    });
-                    const newDiaryList = data.filter((it) => it._id !== a._id);
-                    setProducts(newDiaryList);
-                  }}
-                >
-                  삭제
-                </button>
-              ) : (
-                ""
-              )}
-            </div>
-          ))
-        : "댓글없음"} */}
 
       {currentPosts && products.length > 0 ? (
         currentPosts.map((item, idx) => (
@@ -108,7 +84,7 @@ export default function Comment({ id, session }) {
           })
             .then((r) => r.json())
             .then((result) => {
-              setProducts([...products, result]);
+              setProducts([result, ...products]);
             });
         }}
       >
