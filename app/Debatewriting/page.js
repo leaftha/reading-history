@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth";
 import Markdown from "./markdown";
 import NotAuth from "../notauth";
 
-export default async function Writing() {
+export default async function Debatewriting() {
   let session = await getServerSession(authOptions);
   if (!session) {
     return <NotAuth />;

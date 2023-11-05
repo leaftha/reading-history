@@ -22,8 +22,7 @@ export default async function Debate() {
 
   return (
     <div>
-      <Link href="writing">글 작성</Link>
-      <Link href="reviewlist">다른 사람 서평들</Link>
+      <Link href="Debatewriting">글 작성</Link>
       <p>토론방</p>
       <List result={result} />
     </div>
