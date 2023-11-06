@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth";
 import Markdown from "./markdown";
 import Link from "next/link";
 import NotAuth from "@/app/notauth";
+import Comment from "./comment";
 
 export default async function Detail(props) {
   let session = await getServerSession(authOptions);
@@ -34,6 +35,7 @@ export default async function Detail(props) {
 
       <h4>{result.title}</h4>
       <Markdown result={result} />
+      <Comment id={result._id} session={session} />
     </div>
   );
 }
