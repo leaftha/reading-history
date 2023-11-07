@@ -88,7 +88,7 @@ export default function Comment({ id, session }) {
             ) : (
               ""
             )}
-            <Recomment id={item._id} />
+            <Recomment id={item._id} session={session} />
           </div>
         ))
       ) : (

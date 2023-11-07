@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     const db = (await connectDB).db("readingHistory");
     req.body = JSON.parse(req.body);
     await db
-      .collection("debate_comment")
+      .collection("debate_recomment")
       .deleteOne({ _id: new ObjectId(req.body.id) });
     res.status(200).json("성공");
   }
