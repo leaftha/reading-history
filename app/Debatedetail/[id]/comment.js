@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Paging from "./pagin";
+import Recomment from "./recomment";
 
 export default function Comment({ id, session }) {
   const [comment, setComment] = useState("");
@@ -68,6 +69,7 @@ export default function Comment({ id, session }) {
             <p>
               {item.content} - {item.author}
             </p>
+
             {item.author === session.user.email ? (
               <button
                 onClick={() => {
@@ -86,11 +88,13 @@ export default function Comment({ id, session }) {
             ) : (
               ""
             )}
+            <Recomment id={item._id} />
           </div>
         ))
       ) : (
         <div> No posts.</div>
       )}
+
       <Paging page={currentPage} count={count} setPage={setPage} />
     </div>
   );
