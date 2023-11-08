@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Paging from "./pagin";
 import Recomment from "./recomment";
+import classes from "./comment.module.css";
 
 export default function Comment({ id, session }) {
   const [comment, setComment] = useState("");
@@ -51,7 +52,7 @@ export default function Comment({ id, session }) {
             setComment(e.target.value);
           }}
         />
-        <input name="id" defaultValue={id} />
+        <input className={classes.commentNone} name="id" defaultValue={id} />
         <button>댓글전송</button>
       </form>
 
@@ -64,8 +65,16 @@ export default function Comment({ id, session }) {
 
             {item.author === session.user.email ? (
               <form action="/api/debate/comment/delete" method="POST">
-                <input name="itemId" defaultValue={item._id} />
-                <input name="id" defaultValue={id} />
+                <input
+                  className={classes.commentNone}
+                  name="itemId"
+                  defaultValue={item._id}
+                />
+                <input
+                  className={classes.commentNone}
+                  name="id"
+                  defaultValue={id}
+                />
                 <button>삭제</button>
               </form>
             ) : (
