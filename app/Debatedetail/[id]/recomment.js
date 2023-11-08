@@ -15,6 +15,7 @@ export default function Recomment({ id, session }) {
         setComments(reverse);
       });
   }, []);
+
   return (
     <div>
       {comments.map((item, idx) => (
@@ -71,7 +72,7 @@ export default function Recomment({ id, session }) {
       ) : (
         ""
       )}
-      <p>dd</p>
+      <p>---------------------------------</p>
     </div>
   );
 }

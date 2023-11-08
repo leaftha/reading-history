@@ -13,6 +13,7 @@ export default function Comment({ id, session }) {
   const [indexOfLastPost, setIndexOfLastPost] = useState(0); // 현재 페이지의 마지막 아이템 인덱스
   const [indexOfFirstPost, setIndexOfFirstPost] = useState(0); // 현재 페이지의 첫번째 아이템 인덱스
   const [currentPosts, setCurrentPosts] = useState(0); // 현재 페이지에서 보여지는 아이템들
+  const [isDelete, setIsDelete] = useState(false);
 
   useEffect(() => {
     fetch(`/api/debate/comment/list?id=${id}`)
@@ -42,26 +43,17 @@ export default function Comment({ id, session }) {
     <div>
       <div>댓글목록</div>
 
-      <input
-        value={comment}
-        onChange={(e) => {
-          setComment(e.target.value);
-        }}
-      />
-      <button
-        onClick={() => {
-          fetch("/api/debate/comment/new", {
-            method: "POST",
-            body: JSON.stringify({ comment: comment, id: id }),
-          })
-            .then((r) => r.json())
-            .then((result) => {
-              setProducts([result, ...products]);
-            });
-        }}
-      >
-        댓글전송
-      </button>
+      <form action="/api/debate/comment/new" method="POST">
+        <input
+          name="comment"
+          value={comment}
+          onChange={(e) => {
+            setComment(e.target.value);
+          }}
+        />
+        <input name="id" defaultValue={id} />
+        <button>댓글전송</button>
+      </form>
 
       {currentPosts && products.length > 0 ? (
         currentPosts.map((item, idx) => (
@@ -71,23 +63,15 @@ export default function Comment({ id, session }) {
             </p>
 
             {item.author === session.user.email ? (
-              <button
-                onClick={() => {
-                  fetch("/api/debate/comment/delete", {
-                    method: "POST",
-                    body: JSON.stringify({ id: item._id }),
-                  });
-                  const newDiaryList = products.filter(
-                    (it) => it._id !== item._id
-                  );
-                  setProducts(newDiaryList);
-                }}
-              >
-                삭제
-              </button>
+              <form action="/api/debate/comment/delete" method="POST">
+                <input name="itemId" defaultValue={item._id} />
+                <input name="id" defaultValue={id} />
+                <button>삭제</button>
+              </form>
             ) : (
               ""
             )}
+            <p>대댓글</p>
             <Recomment id={item._id} session={session} />
           </div>
         ))
