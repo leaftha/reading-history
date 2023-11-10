@@ -4,6 +4,7 @@ import { getServerSession } from 'next-auth';
 import Taste from './taste';
 import NotAuth from '../notauth';
 import DeleteUser from './deleteUser';
+import classes from "./page.module.css"
 
 export default async function Profile() {
     let session = await getServerSession(authOptions);
@@ -36,7 +37,7 @@ export default async function Profile() {
     }
 
     return (
-        <div>
+        <div className={classes.main}>
             <p>profile</p>
             <p>{session.user.name}</p>
             <p>{session.user.email}</p>
