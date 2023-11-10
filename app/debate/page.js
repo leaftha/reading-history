@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 import NotAuth from "../notauth";
 import Link from "next/link";
 import List from "./list";
-
+//ㅇㄹㄴ
 export default async function Debate() {
   let session = await getServerSession(authOptions);
   if (!session) {
