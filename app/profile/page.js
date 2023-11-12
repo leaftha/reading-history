@@ -39,10 +39,10 @@ export default async function Profile() {
     return (
         <div className={classes.main}>
             <p>profile</p>
-            <p>{session.user.name}</p>
-            <p>{session.user.email}</p>
-            <p>{reviews.length}</p>
-            <p>{tier}</p>
+            <p>닉네임: {session.user.name}</p>
+            <p>이메일: {session.user.email}</p>
+            <p>글쓴수: {reviews.length}</p>
+            <p>계급: {tier}</p>
             <DeleteUser session={session} />
             <div>
                 <h1>현재 취양</h1>

@@ -1,9 +1,11 @@
 import { connectDB } from '@/util/database';
 import { authOptions } from '@/pages/api/auth/[...nextauth].js';
 import { getServerSession } from 'next-auth';
+import "./page.review.model.css"
 import Link from 'next/link';
 import NotAuth from '../notauth';
 import List from './list';
+;
 
 export default async function Reviews() {
     let session = await getServerSession(authOptions);

@@ -2,6 +2,7 @@
 
 import MDEditor from '@uiw/react-md-editor';
 import { useEffect, useState } from 'react';
+import "./markdown.model.css";
 
 export default function Markdown({ session }) {
     const [value, setValue] = useState('');
@@ -33,7 +34,8 @@ export default function Markdown({ session }) {
                 <MDEditor height={200} value={value} onChange={setValue} />
             </div>
             <textarea name="main" defaultValue={value}></textarea>
-            <button type="submit">버튼</button>
+            <button type="submit">작성하기</button> 
+            
         </form>
     );
 }

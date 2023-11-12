@@ -24,7 +24,7 @@ export default async function RootLayout({ children }) {
                     <Link href="/reviews">서평</Link>
                     <Link href="/commend">추천 도서</Link>
                     <Link href="/profile">프로필</Link>
-                    <Link href="/debate">톨ㄴ</Link>
+                    <Link href="/debate">토론</Link>
 
                     <Login session={session} />
                 </nav>

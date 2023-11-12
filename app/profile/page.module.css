@@ -1,3 +1,50 @@
 .main {
-    background-color: red;
+    background-color: #f9f9f9;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+}
+
+.main p {
+    font-size: 1rem;
+    color: #333;
+    margin: 5px 0;
+}
+
+.main h1 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+/* 취향 리스트 스타일 */
+.taste-list {
+    background-color: #e7e7e7;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.taste-list p {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* 버튼 스타일 */
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
 }
