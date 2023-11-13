@@ -1,7 +1,7 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth].js";
 import { getServerSession } from "next-auth";
 import NotAuth from "../notauth";
-
+import classes from "./page.module.css";
 import List from "./listl";
 
 export default async function Commend() {
@@ -10,8 +10,8 @@ export default async function Commend() {
     return <NotAuth />;
   }
   return (
-    <div>
-      <p>책 추천 사이트</p>
+    <div className={classes.main}>
+      <h1 className={classes.title}>책 추천 사이트</h1>
       <List session={session} />
     </div>
   );
