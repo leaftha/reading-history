@@ -31,14 +31,22 @@ export default function List({ session }) {
 
   return (
     <div className={classes.main}>
-      <select onChange={handleSelect} value={selected}>
-        {selectList.map((item) => (
-          <option value={item} key={item}>
-            {item}
-          </option>
-        ))}
-      </select>
-      <button onClick={() => setIsFalse(!isFalse)}>검색</button>
+      <div className={classes.select}>
+        <select
+          className={classes.selects}
+          onChange={handleSelect}
+          value={selected}
+        >
+          {selectList.map((item) => (
+            <option value={item} key={item}>
+              {item}
+            </option>
+          ))}
+        </select>
+        <button className={classes.btn} onClick={() => setIsFalse(!isFalse)}>
+          검색
+        </button>
+      </div>
       <ul className={classes.list_container}>
         {data
           ? data.map((item, idx) => (
