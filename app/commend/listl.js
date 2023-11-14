@@ -56,6 +56,7 @@ export default function List({ session }) {
                 onClick={() => {
                   clickedhandler(item);
                   setModal(true);
+                  document.body.style.overflow = "hidden";
                 }}
               >
                 {idx + 1} - {item.title}
