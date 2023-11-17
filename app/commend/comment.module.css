@@ -1,0 +1,44 @@
+.main {
+  margin: 20px 0;
+}
+
+.title {
+  font-size: 26px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.InputForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  width: 100%;
+}
+
+.input {
+  height: 100%;
+  width: 90%;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+}
+
+.lists {
+  margin: 20px;
+}
+
+.li {
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.li p b {
+  font-weight: bold;
+}
+
+.commentBtn {
+  margin-left: 20px;
+}
