@@ -1,5 +1,6 @@
 import { connectDB } from "@/util/database";
 import List from "./list";
+import classes from "./page.module.css";
 
 export default async function reviewList() {
   const client = await connectDB;
@@ -14,8 +15,8 @@ export default async function reviewList() {
     return a;
   });
   return (
-    <div>
-      <p>리뷰 리스트</p>
+    <div className={classes.main}>
+      <p className={classes.title}>리뷰 리스트</p>
       <List result={result} />
     </div>
   );

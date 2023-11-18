@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  margin: 100px 60px;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+}
