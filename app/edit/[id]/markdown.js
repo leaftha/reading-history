@@ -1,13 +1,15 @@
 "use client";
 
 import MDEditor from "@uiw/react-md-editor";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./markdown.module.css";
 
 export default function Markdown({ result }) {
   const [value, setValue] = useState(result.main);
-  const [title, setTitle] = useState(`${result.title}`);
-
+  const [title, setTitle] = useState(result.title);
+  function handleChange(e) {
+    setTitle(e.target.value);
+  }
   return (
     <form action="/api/post/edit" method="POST">
       <input className={classes.none} name="id" defaultValue={result._id} />
@@ -16,7 +18,7 @@ export default function Markdown({ result }) {
           className={classes.inputTitle}
           name="title"
           value={title}
-          onChange={setTitle}
+          onChange={handleChange}
           //   placeholder={result.title}
         />
       </div>
