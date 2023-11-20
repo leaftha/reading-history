@@ -18,9 +18,8 @@ export default async function Reviews() {
     .collection("reviews")
     .find({ email: session.user.email })
     .toArray();
-  result = result.map((a) => {
-    a._id = a._id.toString();
-    return a;
+  result.map((e) => {
+    e._id = e._id.toString();
   });
 
   return (
