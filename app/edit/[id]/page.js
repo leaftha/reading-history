@@ -12,9 +12,7 @@ export default async function Edit(props) {
     .collection("reviews")
     .findOne({ _id: new ObjectId(props.params.id) });
   result._id = result._id.toString();
-  //   result.map((e) => {
-  //     e._id = e._id.toString();
-  //   });
+
   if (session.user.email != result.email) {
     return (
       <div>

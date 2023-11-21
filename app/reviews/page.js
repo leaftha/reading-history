@@ -22,6 +22,8 @@ export default async function Reviews() {
     e._id = e._id.toString();
   });
 
+  result = result.reverse();
+
   return (
     <div className={classes.main}>
       <Link className={classes.wrting} href="writing">

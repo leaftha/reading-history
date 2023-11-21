@@ -14,11 +14,12 @@ export default function List({ result }) {
   const [currentPosts, setCurrentPosts] = useState(0); // 현재 페이지에서 보여지는 아이템들
 
   useEffect(() => {
-    setCount(products.length);
+    setCount(products.length / 2);
     setIndexOfLastPost(currentPage * postPerPage);
     setIndexOfFirstPost(indexOfLastPost - postPerPage);
     setCurrentPosts(products.slice(indexOfFirstPost, indexOfLastPost));
   }, [currentPage, indexOfLastPost, indexOfFirstPost, products, postPerPage]);
+  console.log(count);
 
   const setPage = (error) => {
     setCurrentPage(error);
