@@ -1,0 +1,11 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  margin: 100px 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.none {
+  display: none;
+}

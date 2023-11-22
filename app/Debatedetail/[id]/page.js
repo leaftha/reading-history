@@ -6,6 +6,7 @@ import Markdown from "./markdown";
 import Link from "next/link";
 import NotAuth from "@/app/notauth";
 import Comment from "./comment";
+import classes from "./page.module.css";
 
 export default async function Detail(props) {
   let session = await getServerSession(authOptions);
@@ -19,13 +20,17 @@ export default async function Detail(props) {
   result._id = result._id.toString();
 
   return (
-    <div>
+    <div className={classes.main}>
       <h4>상세페이지</h4>
       {result.email === session.user.email ? (
         <div>
           <Link href={`/Debateedit/${props.params.id}`}>수정</Link>
           <form method="POST" action="/api/debate/delete">
-            <input name="id" defaultValue={props.params.id} />
+            <input
+              className={classes.none}
+              name="id"
+              defaultValue={props.params.id}
+            />
             <button>삭제</button>
           </form>
         </div>
