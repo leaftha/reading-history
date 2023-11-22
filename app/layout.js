@@ -4,7 +4,7 @@ import Login from './login';
 import { authOptions } from '@/pages/api/auth/[...nextauth].js';
 import { getServerSession } from 'next-auth';
 import { Inter } from 'next/font/google';
-import "./reset.css"
+import './reset.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,13 +19,23 @@ export default async function RootLayout({ children }) {
     return (
         <html lang="en">
             <body suppressHydrationWarning={true} className={inter.className}>
-                <nav className='navbar'>
-                    <Link href="/">홈</Link>
-                    <Link href="/reviews">서평</Link>
-                    <Link href="/commend">추천 도서</Link>
-                    <Link href="/profile">프로필</Link>
-                    <Link href="/debate">토론</Link>
+                <nav className="navbar">
+                    <Link className="link" href="/">
+                        홈
+                    </Link>
+                    <Link className="link" href="/reviews">
+                        서평
+                    </Link>
+                    <Link className="link" href="/commend">
+                        추천 도서
+                    </Link>
 
+                    <Link className="link" href="/debate">
+                        토론
+                    </Link>
+                    <Link className="link" href="/profile">
+                        프로필
+                    </Link>
                     <Login session={session} />
                 </nav>
                 {children}
