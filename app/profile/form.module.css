@@ -1,0 +1,17 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.select {
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+    background: none;
+    outline: none;
+}
+
+.none {
+    display: none;
+}

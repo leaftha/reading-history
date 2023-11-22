@@ -4,7 +4,7 @@ import { getServerSession } from 'next-auth';
 import Taste from './taste';
 import NotAuth from '../notauth';
 import DeleteUser from './deleteUser';
-import classes from "./page.module.css"
+import classes from './page.module.css';
 
 export default async function Profile() {
     let session = await getServerSession(authOptions);
@@ -27,6 +27,8 @@ export default async function Profile() {
         tier = '지식인';
     } else if (reviews.length < 40) {
         tier = '도서왕';
+    } else {
+        tier = '독서 신';
     }
 
     let tastes;
@@ -38,18 +40,30 @@ export default async function Profile() {
 
     return (
         <div className={classes.main}>
-            <p>profile</p>
+            <div className={classes.content}>
+                <h1 className={classes.title}>프로필</h1>
+
+                <div className={classes.contentProps}>
+                    <DeleteUser session={session} />
+                    <Taste session={session} />
+                </div>
+            </div>
             <p>닉네임: {session.user.name}</p>
             <p>이메일: {session.user.email}</p>
-            <p>글쓴수: {reviews.length}</p>
+            <p>서평 수: {reviews.length}</p>
             <p>계급: {tier}</p>
-            <DeleteUser session={session} />
             <div>
-                <h1>현재 취양</h1>
-                {tastes ? tastes.map((item, idx) => <p key={idx}>{item}</p>) : '현재 없음'}
+                <h1 className={classes.tasteTitle}>현재 취양</h1>
+                <ul className={classes.tasteUl}>
+                    {tastes
+                        ? tastes.map((item, idx) => (
+                              <li className={classes.lists} key={idx}>
+                                  {item}
+                              </li>
+                          ))
+                        : '현재 없음'}
+                </ul>
             </div>
-
-            <Taste session={session} />
         </div>
     );
 }

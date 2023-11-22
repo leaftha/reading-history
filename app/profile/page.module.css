@@ -1,24 +1,61 @@
 .main {
     background-color: #f9f9f9;
-    margin: 20px auto;
-    padding: 20px;
+    margin: 100px auto;
+    padding: 100px;
     border-radius: 10px;
     max-width: 600px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-family: 'Inter', sans-serif;
 }
 
+.content {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.contentProps {
+    position: absolute;
+    right: 0;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #111111;
+    margin: 10px 0;
+}
+
 .main p {
     font-size: 1rem;
     color: #333;
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
-.main h1 {
+.tasteTitle {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.tasteUl {
+    display: flex;
+}
+
+.lists {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 20px;
+    background-color: #e7e7e7;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* .main h1 {
     font-size: 1.5rem;
     color: #007bff;
     margin-bottom: 15px;
-}
+} */
 
 /* 취향 리스트 스타일 */
 .taste-list {
