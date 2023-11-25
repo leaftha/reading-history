@@ -21,24 +21,28 @@ export default async function Detail(props) {
 
   return (
     <div className={classes.main}>
-      <h4>상세페이지</h4>
+      <h4 className={classes.title}>{result.title}</h4>
       {result.email === session.user.email ? (
-        <div>
-          <Link href={`/Debateedit/${props.params.id}`}>수정</Link>
+        <div className={classes.content}>
+          <Link
+            className={classes.link}
+            href={`/Debateedit/${props.params.id}`}
+          >
+            수정
+          </Link>
           <form method="POST" action="/api/debate/delete">
             <input
               className={classes.none}
               name="id"
               defaultValue={props.params.id}
             />
-            <button>삭제</button>
+            <button className={classes.btn}>삭제</button>
           </form>
         </div>
       ) : (
         ""
       )}
 
-      <h4>{result.title}</h4>
       <Markdown result={result} />
       <Comment id={result._id} session={session} />
     </div>

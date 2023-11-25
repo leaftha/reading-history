@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import classes from "./recomment.module.css";
 
 export default function Recomment({ id, session }) {
   const [isInput, setIsInput] = useState(false);
@@ -17,14 +18,17 @@ export default function Recomment({ id, session }) {
   }, []);
 
   return (
-    <div>
+    <div className={classes.main}>
+      <h1 className={classes.title}>대댓글</h1>
+      <div className={classes.line}></div>
       {comments.map((item, idx) => (
-        <div key={idx}>
-          <p>
+        <div className={classes.recoment} key={idx}>
+          <p className={classes.content}>
             {item.content} - {item.author}
           </p>
           {item.author === session.user.email ? (
             <button
+              className={classes.btn}
               onClick={() => {
                 fetch("/api/debate/comment/recomment/delete", {
                   method: "POST",
@@ -43,18 +47,22 @@ export default function Recomment({ id, session }) {
           )}
         </div>
       ))}
-      <div>
-        <button onClick={() => setIsInput(!isInput)}>답글</button>
+      <div className={classes.recomentBtn}>
+        <button className={classes.btn} onClick={() => setIsInput(!isInput)}>
+          답글
+        </button>
       </div>
       {isInput ? (
-        <div>
+        <div className={classes.inputContent}>
           <input
+            className={classes.input}
             value={comment}
             onChange={(e) => {
               setComment(e.target.value);
             }}
           />
           <button
+            className={classes.btn}
             onClick={() => {
               fetch("/api/debate/comment/recomment/new", {
                 method: "POST",
@@ -72,7 +80,6 @@ export default function Recomment({ id, session }) {
       ) : (
         ""
       )}
-      <p>---------------------------------</p>
     </div>
   );
 }

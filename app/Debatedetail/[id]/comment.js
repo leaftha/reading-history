@@ -41,11 +41,16 @@ export default function Comment({ id, session }) {
   };
 
   return (
-    <div>
-      <div>댓글목록</div>
+    <div className={classes.main}>
+      <div className={classes.title}>댓글목록</div>
 
-      <form action="/api/debate/comment/new" method="POST">
+      <form
+        className={classes.form}
+        action="/api/debate/comment/new"
+        method="POST"
+      >
         <input
+          className={classes.input}
           name="comment"
           value={comment}
           onChange={(e) => {
@@ -53,35 +58,39 @@ export default function Comment({ id, session }) {
           }}
         />
         <input className={classes.commentNone} name="id" defaultValue={id} />
-        <button>댓글전송</button>
+        <button className={classes.commentbtn}>댓글전송</button>
       </form>
 
       {currentPosts && products.length > 0 ? (
         currentPosts.map((item, idx) => (
-          <div key={idx}>
-            <p>
-              {item.content} - {item.author}
-            </p>
+          <div className={classes.commentContent} key={idx}>
+            <div className={classes.comment}>
+              <div className={classes.commentsContent}>
+                <p className={classes.comments}>
+                  {item.author} : {item.content}
+                </p>
 
-            {item.author === session.user.email ? (
-              <form action="/api/debate/comment/delete" method="POST">
-                <input
-                  className={classes.commentNone}
-                  name="itemId"
-                  defaultValue={item._id}
-                />
-                <input
-                  className={classes.commentNone}
-                  name="id"
-                  defaultValue={id}
-                />
-                <button>삭제</button>
-              </form>
-            ) : (
-              ""
-            )}
-            <p>대댓글</p>
-            <Recomment id={item._id} session={session} />
+                {item.author === session.user.email ? (
+                  <form action="/api/debate/comment/delete" method="POST">
+                    <input
+                      className={classes.commentNone}
+                      name="itemId"
+                      defaultValue={item._id}
+                    />
+                    <input
+                      className={classes.commentNone}
+                      name="id"
+                      defaultValue={id}
+                    />
+                    <button className={classes.commentbtn}>삭제</button>
+                  </form>
+                ) : (
+                  ""
+                )}
+              </div>
+              
+              <Recomment id={item._id} session={session} />
+            </div>
           </div>
         ))
       ) : (
