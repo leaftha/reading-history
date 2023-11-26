@@ -35,16 +35,6 @@ body {
   text-decoration: underline;
 }
 
-/* 본문 스타일 개선 */
-.bodyStyle {
-  font-family: "Inter", sans-serif;
-  background: #f7f7f7;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-}
-
 /* 추가 글로벌 스타일 조정 */
 html {
   scroll-behavior: smooth;

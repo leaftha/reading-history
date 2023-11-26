@@ -15,8 +15,8 @@ export default async function Edit(props) {
 
   if (session.user.email != result.email) {
     return (
-      <div>
-        <p>작성자가 아닙니다.</p>
+      <div className={classes.main}>
+        <h1 className={classes.title}>작성자가 아닙니다.</h1>
       </div>
     );
   }
