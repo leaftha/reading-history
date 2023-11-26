@@ -24,11 +24,8 @@ export default async function Detail(props) {
       <h4 className={classes.title}>{result.title}</h4>
       {result.email === session.user.email ? (
         <div className={classes.content}>
-          <Link
-            className={classes.link}
-            href={`/Debateedit/${props.params.id}`}
-          >
-            수정
+          <Link className={classes.btn} href={`/Debateedit/${props.params.id}`}>
+            <p className={classes.text}>수정</p>
           </Link>
           <form method="POST" action="/api/debate/delete">
             <input

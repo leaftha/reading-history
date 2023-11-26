@@ -26,12 +26,14 @@ export default async function Reviews() {
 
   return (
     <div className={classes.main}>
-      <Link className={classes.wrting} href="writing">
-        글 작성
-      </Link>
-      <Link className={classes.another} href="reviewlist">
-        다른 사람 서평들
-      </Link>
+      <div className={classes.btnlist}>
+        <Link className={classes.btn} href="writing">
+          글 작성
+        </Link>
+        <Link className={classes.btn} href="reviewlist">
+          다른 사람 서평들
+        </Link>
+      </div>
       <p className={classes.num}>서평 수 : {result.length}</p>
       <p className={classes.listTitle}>reviews</p>
       <List result={result} />

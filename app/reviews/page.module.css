@@ -5,22 +5,30 @@
   margin: 100px 60px;
 }
 
-.wrting {
-  color: black;
-  text-decoration: none;
-  text-align: right;
-  margin: 10px;
-  font-size: 30px;
-  cursor: pointer;
+.btnlist {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
 }
 
-.another {
-  color: black;
-  text-align: right;
+.btn {
+  font-size: 18px;
+  /* width: 100px; */
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #dee2e6;
   text-decoration: none;
-  font-size: 20px;
+  color: black;
+  margin: 0 10px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 0px #ced4da;
   cursor: pointer;
-  margin-top: 20px;
+  transition: 0.2s;
+}
+.btn:hover {
+  box-shadow: 0px 0px 0px 5px #ced4da;
 }
 
 .num {

@@ -27,7 +27,7 @@ export default async function Debate() {
     <div className={classes.main}>
       <h1 className={classes.title}>토론 방</h1>
       <div className={classes.content}>
-        <Link className={classes.link} href="Debatewriting">
+        <Link className={classes.btn} href="Debatewriting">
           글 작성
         </Link>
       </div>

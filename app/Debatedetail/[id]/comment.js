@@ -58,7 +58,7 @@ export default function Comment({ id, session }) {
           }}
         />
         <input className={classes.commentNone} name="id" defaultValue={id} />
-        <button className={classes.commentbtn}>댓글전송</button>
+        <button className={classes.btn}>댓글전송</button>
       </form>
 
       {currentPosts && products.length > 0 ? (
@@ -82,13 +82,13 @@ export default function Comment({ id, session }) {
                       name="id"
                       defaultValue={id}
                     />
-                    <button className={classes.commentbtn}>삭제</button>
+                    <button className={classes.btn}>삭제</button>
                   </form>
                 ) : (
                   ""
                 )}
               </div>
-              
+
               <Recomment id={item._id} session={session} />
             </div>
           </div>

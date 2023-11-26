@@ -1,6 +1,21 @@
-.main {
+.none {
+  display: none;
 }
 
-.none {
-    display: none;
+.btn {
+  font-size: 16px;
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  text-decoration: none;
+  color: black;
+  margin: 0 10px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 0px #ced4da;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  box-shadow: 0px 0px 0px 5px #ced4da;
 }

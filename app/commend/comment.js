@@ -75,7 +75,7 @@ export default function Comment({ id, session }) {
               </p>
               {item.author === session.user.email ? (
                 <button
-                  className={classes.commentBtn}
+                  className={classes.btn}
                   onClick={() => {
                     fetch("/api/comment/delete", {
                       method: "POST",

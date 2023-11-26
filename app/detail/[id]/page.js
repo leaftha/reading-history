@@ -21,8 +21,8 @@ export default async function Detail(props) {
     <div className={classes.main}>
       <h4 className={classes.title}>{result.title}</h4>
       <div className={classes.btnContent}>
-        <Link className={classes.link} href={`/edit/${props.params.id}`}>
-          수정
+        <Link className={classes.btn} href={`/edit/${props.params.id}`}>
+          <p className={classes.text}>수정</p>
         </Link>
         <form method="POST" action="/api/post/delete">
           <input

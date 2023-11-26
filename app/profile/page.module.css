@@ -1,54 +1,62 @@
 .main {
-    background-color: #f9f9f9;
-    margin: 100px auto;
-    padding: 100px;
-    border-radius: 10px;
-    max-width: 600px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-family: 'Inter', sans-serif;
+  background-color: #f9f9f9;
+  margin: 100px auto;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 600px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: "Inter", sans-serif;
 }
 
 .content {
-    display: flex;
-    position: relative;
-    justify-content: space-between;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  margin: 0 20px;
+}
+
+.content2 {
+  margin: 0 20px;
 }
 
 .contentProps {
-    position: absolute;
-    right: 0;
+  position: absolute;
+  right: 0;
 }
 
 .title {
-    font-size: 32px;
-    font-weight: bold;
-    color: #111111;
-    margin: 10px 0;
+  font-size: 32px;
+  font-weight: bold;
+  color: #111111;
+  margin: 10px 0;
 }
 
 .main p {
-    font-size: 1rem;
-    color: #333;
-    margin: 10px 0;
+  font-size: 1rem;
+  color: #333;
+  margin: 10px 0;
 }
 
 .tasteTitle {
-    font-size: 26px;
-    font-weight: bold;
-    margin: 20px 0;
+  font-size: 26px;
+  font-weight: bold;
+  margin: 20px 0;
 }
 
 .tasteUl {
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
 }
 
 .lists {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0 20px;
-    background-color: #e7e7e7;
-    padding: 20px;
-    border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px;
+  text-align: center;
+  background-color: #e7e7e7;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 /* .main h1 {
@@ -59,29 +67,29 @@
 
 /* 취향 리스트 스타일 */
 .taste-list {
-    background-color: #e7e7e7;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+  background-color: #e7e7e7;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .taste-list p {
-    margin: 5px 0;
-    color: #555;
+  margin: 5px 0;
+  color: #555;
 }
 
 /* 버튼 스타일 */
 .button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
