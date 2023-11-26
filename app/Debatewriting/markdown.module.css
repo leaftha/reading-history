@@ -1,0 +1,55 @@
+/* MDEditor Specific Styles */
+.md-editor {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.none {
+  display: none;
+}
+
+.content {
+  margin: 0 20px;
+}
+.inputTitle {
+  font-size: 30px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  height: 30px;
+  width: 90%;
+  margin: 10px 20px;
+  /* border-bottom: 1px solid black; */
+}
+
+.line {
+  margin: 10px 0;
+  border: 1px solid black;
+  width: 100%;
+}
+
+.selector {
+  width: 200px;
+  height: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  outline: none;
+  border: none;
+}
+
+.markdown {
+  margin: 10px 20px;
+}
+
+.btn {
+  font-size: 20px;
+  font-weight: bold;
+  bottom: 0;
+  margin: 0 20px;
+  background: #ffebd8;
+  border-radius: 4px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
