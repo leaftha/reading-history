@@ -11,7 +11,9 @@ export default function List({ session }) {
   const [modal, setModal] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/post/aladin?category=${selected}&b=2&c=3`)
+    fetch(
+      `https://reading-history.vercel.app/api/post/aladin?category=${selected}&b=2&c=3`
+    )
       .then((res) => res.json())
       .then((item) => {
         setData(item.item);
