@@ -3,10 +3,10 @@ import "./globals.css";
 import Login from "./login";
 import { authOptions } from "@/pages/api/auth/[...nextauth].js";
 import { getServerSession } from "next-auth";
-import { Inter } from "next/font/google";
 import "./reset.css";
+import { Noto_Sans_KR } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const Noto = Noto_Sans_KR({ subsets: ["latin"], weight: "400" });
 
 export const metadata = {
   title: "Reading History",
@@ -18,7 +18,7 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body suppressHydrationWarning={true} className={inter.className}>
+      <body suppressHydrationWarning={true} className={Noto.className}>
         <nav className="navbar">
           <Link className="link" href="/">
             홈
