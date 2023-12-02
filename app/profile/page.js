@@ -60,7 +60,7 @@ export default async function Profile() {
         <p>서평 수: {reviews.length}</p>
         <p>계급: {tier}</p>
         <div>
-          <h1 className={classes.tasteTitle}>현재 취양</h1>
+          <h1 className={classes.tasteTitle}>현재 취향</h1>
           <ul className={classes.tasteUl}>
             {tastes
               ? tastes.map((item, idx) => (

@@ -17,7 +17,7 @@ export default function Form({ session }) {
     if (!tasteList.includes(selected)) {
       setTasteList([selected, ...tasteList]);
     } else {
-      alert("이미 추가된 취양");
+      alert("이미 추가된 취향");
     }
   };
 
