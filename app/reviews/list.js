@@ -19,7 +19,6 @@ export default function List({ result }) {
     setIndexOfFirstPost(indexOfLastPost - postPerPage);
     setCurrentPosts(products.slice(indexOfFirstPost, indexOfLastPost));
   }, [currentPage, indexOfLastPost, indexOfFirstPost, products, postPerPage]);
-  console.log(count);
 
   const setPage = (error) => {
     setCurrentPage(error);
