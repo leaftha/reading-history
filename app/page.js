@@ -3,7 +3,7 @@ import classes from "./page.module.css";
 export default async function Home() {
   return (
     <div className={classes.main}>
-      <div c>
+      <div>
         <h1 className={classes.title}>독서 기록 사이트</h1>
       </div>
 

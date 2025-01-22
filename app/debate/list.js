@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import classes from "./list.module.css";
 
 export default function List({ result }) {
-  const [products, setProducts] = useState([...result]); // 리스트에 나타낼 아이템들
   const [count, setCount] = useState(0); // 아이템 총 개수
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지. default 값으로 1
   const [postPerPage] = useState(25); // 한 페이지에 보여질 아이템 수
@@ -14,11 +13,11 @@ export default function List({ result }) {
   const [currentPosts, setCurrentPosts] = useState(0); // 현재 페이지에서 보여지는 아이템들
 
   useEffect(() => {
-    setCount(products.length / 2);
+    setCount(result.length / 2);
     setIndexOfLastPost(currentPage * postPerPage);
     setIndexOfFirstPost(indexOfLastPost - postPerPage);
-    setCurrentPosts(products.slice(indexOfFirstPost, indexOfLastPost));
-  }, [currentPage, indexOfLastPost, indexOfFirstPost, products, postPerPage]);
+    setCurrentPosts(result.slice(indexOfFirstPost, indexOfLastPost));
+  }, [currentPage, indexOfLastPost, indexOfFirstPost, result, postPerPage]);
 
   const setPage = (error) => {
     setCurrentPage(error);
@@ -26,7 +25,7 @@ export default function List({ result }) {
   return (
     <div className={classes.main}>
       <div className={classes.grid}>
-        {currentPosts && products.length > 0 ? (
+        {currentPosts && result.length > 0 ? (
           currentPosts.map((item, idx) => (
             <div className={classes.item} key={idx}>
               <Link className={classes.link} href={`/Debatedetail/${item._id}`}>

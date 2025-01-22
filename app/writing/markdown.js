@@ -1,14 +1,12 @@
 "use client";
 
 import MDEditor from "@uiw/react-md-editor";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import classes from "./markdown.module.css";
 
 export default function Markdown({ session }) {
   const [value, setValue] = useState("");
   const [privates, setPrivates] = useState(false);
-
-  useEffect(() => {}, [privates]);
 
   return (
     <form className={classes.Form} action="/api/post/writing" method="POST">

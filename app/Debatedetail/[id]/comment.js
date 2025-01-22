@@ -14,7 +14,6 @@ export default function Comment({ id, session }) {
   const [indexOfLastPost, setIndexOfLastPost] = useState(0); // 현재 페이지의 마지막 아이템 인덱스
   const [indexOfFirstPost, setIndexOfFirstPost] = useState(0); // 현재 페이지의 첫번째 아이템 인덱스
   const [currentPosts, setCurrentPosts] = useState(0); // 현재 페이지에서 보여지는 아이템들
-  const [isDelete, setIsDelete] = useState(false);
 
   useEffect(() => {
     fetch(`/api/debate/comment/list?id=${id}`)
